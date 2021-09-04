@@ -1,0 +1,69 @@
+basePath: /v1
+definitions:
+  http_err.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  models.Action:
+    properties:
+      action:
+        type: string
+    type: object
+host: iam-service
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: IAM API REST in Golang with Gin Framework
+  license: {}
+  title: eHealthcare Routing Service
+  version: "1.0"
+paths:
+  /actions:
+    get:
+      consumes:
+      - application/json
+      description: Get available action from db
+      operationId: get-action
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Action'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_err.HTTPError'
+      summary: Get Available Actions
+      tags:
+      - sample
+    post:
+      consumes:
+      - application/json
+      description: Post new action to DB
+      operationId: post-action
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Action'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/http_err.HTTPError'
+      summary: Post new action
+      tags:
+      - sample
+swagger: "2.0"

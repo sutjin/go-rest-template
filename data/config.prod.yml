@@ -1,0 +1,22 @@
+server:
+  appName: "SOME_SERVICE"
+  port: "8080"
+  secret: "SOME_SECRET"
+  mode: "debug"
+
+database:
+  dbname: "SOME_DATABASE"
+  host: "localhost"
+  port: "5432"
+  username: "admin"
+  password: "password"
+  max_lifetime: 7200
+  max_open_conns: 150
+  max_idle_conns: 50
+
+LogConfig:
+  level: 'info'
+  filename: "log/api.log"
+  MaxSize: 500
+  MaxAge: 28
+  MaxBackups: 3
